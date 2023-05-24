@@ -5,7 +5,7 @@ namespace Application.Dto.BoxSaving;
 
 public class UpdateBoxSavingDto
 {
-    public IEnumerable<Saving> Newsavings { get; set; }
+    public IEnumerable<Saving> NewSavings { get; set; }
 }
 
 
