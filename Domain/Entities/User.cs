@@ -1,8 +1,4 @@
-﻿
-
-using System.Net;
-
-namespace Domain.Entities;
+﻿namespace Domain.Entities;
 public sealed class User : Entity<UserId>
 {
     private readonly HashSet<BoxSaving> _boxSavings = new();
@@ -34,10 +30,18 @@ public sealed class User : Entity<UserId>
 
         _boxSavings.Add(boxSaving);
     }
-    public void UpdateBoxSavings(BoxSaving boxSaving, IEnumerable<Saving> savings)
+    public void UpdateBoxSavings(int multiplier, BoxSavingId savingId, IEnumerable<Saving> savings)
     {
-        var box = _boxSavings.First(x => x.Id == boxSaving.Id);
+        var box = _boxSavings.FirstOrDefault(x => x.Id == savingId);
 
+        if(box is null)
+        {
+            throw new Exception();
+        }
+        if (box.Multiplier != multiplier)
+        {
+            throw new Exception();
+        }
         box.UpdateSaving(savings);
     }
 }

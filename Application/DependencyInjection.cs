@@ -16,9 +16,10 @@ public static class DependencyInjection
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         services.AddScoped<IPasswordHasher, PasswordHasher>();
-        services.AddScoped<ILoginService,LoginService>();
+        services.AddScoped<ILoginService, LoginService>();
         services.AddScoped<IUserRegisterService,UserRegisterService>();
         services.AddScoped<ICreateBoxSavingService, CreateBoxSavingService>();
+        services.AddScoped<IUpdateBoxSavingService, UpdateBoxSavingService>();
         return services;
     }
 }
