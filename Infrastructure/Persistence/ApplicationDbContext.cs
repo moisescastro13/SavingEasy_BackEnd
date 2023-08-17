@@ -32,11 +32,13 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-
         var entries = base.ChangeTracker.Entries()
-            .Where(CheckEntityState()).ToList();
+            .Where(CheckEntityState());
 
-        entries.ForEach(entry => CheckEntityStatus(entry, entry.Entity));
+        foreach (var entry in entries)
+        {
+            CheckEntityStatus(entry, entry.Entity);
+        }
 
         return base.SaveChangesAsync();
     }

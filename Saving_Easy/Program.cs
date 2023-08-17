@@ -1,12 +1,16 @@
 using Application;
 using Infrastructure;
 using Infrastructure.Swagger;
+using Saving_Easy.Filter;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add(typeof(ExceptionFilter));
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => options.AddSwaggerConfiguration());

@@ -1,7 +1,6 @@
 ﻿using Application.Dto.BoxSaving;
 using Application.interfaces.Authorization;
 using Application.Interfaces.BoxSavings;
-using Infrastructure.JWT.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;

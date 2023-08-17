@@ -1,7 +1,6 @@
 ﻿
 using Application.interfaces.Authorization;
 using Application.Interfaces;
-using Domain.Entities;
 using Infrastructure.JWT.extensions;
 using Infrastructure.JWT.Services;
 using Infrastructure.Persistence;
